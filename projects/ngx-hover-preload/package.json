@@ -1,9 +1,9 @@
 {
   "name": "ngx-hover-preload",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "peerDependencies": {
-    "@angular/common": "^11.0.6",
-    "@angular/core": "^11.0.6"
+    "@angular/common": ">=9.0.0",
+    "@angular/core": ">=9.0.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"
