@@ -1,3 +1,5 @@
+[![mgechev](https://circleci.com/gh/mgechev/ngx-hover-preload.svg?style=svg)](https://app.circleci.com/pipelines/github/mgechev/ngx-hover-preload)
+
 <p align="center">
    <img src="https://github.com/mgechev/ngx-hover-preload/blob/master/assets/ngx-hover-preload.png?raw=true" width="200px">
 </div>
