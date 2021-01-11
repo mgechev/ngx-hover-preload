@@ -25,11 +25,11 @@ Install the module:
 yarn add ngx-hover-preload
 ```
 
-Import the `NgxHoverPreloadModule`  in your `AppModule` and your lazy-loaded modules to ensure the required directives are available:
+Import the `HoverPreloadModule`  in your `AppModule` and your lazy-loaded modules to ensure the required directives are available:
 
 ```ts
 // ...
-import { NgxHoverPreloadModule } from 'ngx-hover-preload';
+import { HoverPreloadModule } from 'ngx-hover-preload';
 
 @NgModule({
   declarations: [
@@ -37,14 +37,14 @@ import { NgxHoverPreloadModule } from 'ngx-hover-preload';
   ],
   imports: [
     // ...
-    NgxHoverPreloadModule
+    HoverPreloadModule
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 ```
 
-**Make sure you import the `NgxHoverPreloadModule` in all lazy-loaded modules in which you want to have this functionality available**
+**Make sure you import the `HoverPreloadModule` in all lazy-loaded modules in which you want to have this functionality available**
 
 Don't forget to set the `HoverPreloadStrategy` as your `preloadStrategy`:
 

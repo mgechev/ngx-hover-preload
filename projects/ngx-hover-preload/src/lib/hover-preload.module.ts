@@ -9,4 +9,4 @@ import { LinkDirective } from './link.directive';
   providers: [HoverPreloadStrategy],
   exports: [LinkDirective]
 })
-export class NgxHoverPreloadModule { }
+export class HoverPreloadModule { }

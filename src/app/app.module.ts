@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgxHoverPreloadModule } from 'ngx-hover-preload';
+import { HoverPreloadModule } from 'ngx-hover-preload';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { NgxHoverPreloadModule } from 'ngx-hover-preload';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxHoverPreloadModule
+    HoverPreloadModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AboutRoutingModule } from './about-routing.module';
 import { AboutComponent } from './about.component';
-import { NgxHoverPreloadModule } from 'ngx-hover-preload';
+import { HoverPreloadModule } from 'ngx-hover-preload';
 
 
 @NgModule({
@@ -11,7 +11,7 @@ import { NgxHoverPreloadModule } from 'ngx-hover-preload';
   imports: [
     CommonModule,
     AboutRoutingModule,
-    NgxHoverPreloadModule
+    HoverPreloadModule
   ]
 })
 export class AboutModule { }
