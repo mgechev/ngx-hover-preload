@@ -1,3 +1,7 @@
+<p align="center">
+   <img src="https://github.com/mgechev/ngx-hover-preload/blob/master/assets/ngx-hover-preload.png?raw=true">
+</div>
+
 # ngx-hover-preload
 
 This package exports a `PreloadingStrategy`, which will preload a lazy-loaded route on mouse over a corresponding router link.
@@ -10,7 +14,7 @@ Other preloading strategies:
 
 ## Example
 
-
+Example is available [here](https://github.com/mgechev/ngx-hover-preload/tree/master/src).
 
 ## Usage
 

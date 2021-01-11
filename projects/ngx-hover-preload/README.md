@@ -1,24 +1,62 @@
-# NgxHoverPreload
+<p align="center">
+   <img src="https://github.com/mgechev/ngx-hover-preload/blob/master/assets/ngx-hover-preload.png?raw=true">
+</div>
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.6.
+# ngx-hover-preload
 
-## Code scaffolding
+This package exports a `PreloadingStrategy`, which will preload a lazy-loaded route on mouse over a corresponding router link.
 
-Run `ng generate component component-name --project ngx-hover-preload` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-hover-preload`.
-> Note: Don't forget to add `--project ngx-hover-preload` or else it will be added to the default project in your `angular.json` file. 
+## Alternatives
 
-## Build
+Other preloading strategies:
+- [`ngx-quicklink`](https://github.com/mgechev/ngx-quicklink) - Preloads the modules associated with *all* links visible in the viewport. Quicklink does more aggressive preloading compared to `ngx-hover-preload`, which makes it more network and CPU intensive.
+- [Guess.js](https://github.com/guess-js/guess) - Most advanced preloading strategy, which uses predictive prefetching. At build-time Guess.js compiles a data analytics model and includes it in your production bundle, so that at runtime after each navigation Guess.js prefetches *only* the modules that are likely to be needed next. Guess.js works particularly well with `ngx-hover-preload`, because if the prediction was wrong the preloading mechanism gracefully fallbacks to hover.
 
-Run `ng build ngx-hover-preload` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Example
 
-## Publishing
+Example is available [here](https://github.com/mgechev/ngx-hover-preload/tree/master/src).
 
-After building your library with `ng build ngx-hover-preload`, go to the dist folder `cd dist/ngx-hover-preload` and run `npm publish`.
+## Usage
 
-## Running unit tests
+Install the module:
+```
+yarn add ngx-hover-preload
+```
 
-Run `ng test ngx-hover-preload` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Import the `NgxHoverPreloadModule`  in your `AppModule` and your lazy-loaded modules to ensure the required directives are available:
 
-## Further help
+```ts
+// ...
+import { NgxHoverPreloadModule } from 'ngx-hover-preload';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+@NgModule({
+  declarations: [
+    // ...
+  ],
+  imports: [
+    // ...
+    NgxHoverPreloadModule
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+**Make sure you import the `NgxHoverPreloadModule` in all lazy-loaded modules in which you want to have this functionality available**
+
+Don't forget to set the `HoverPreloadStrategy` as your `preloadStrategy`:
+
+```ts
+// ...
+import { HoverPreloadStrategy } from 'ngx-hover-preload';
+
+@NgModule({
+  // ...
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: HoverPreloadStrategy })],
+})
+export class AppModule {} // or AppRoutingModule
+```
+
+## License
+
+MIT
