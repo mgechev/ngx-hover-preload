@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="https://github.com/mgechev/ngx-hover-preload/blob/master/assets/ngx-hover-preload.png?raw=true">
+   <img src="https://github.com/mgechev/ngx-hover-preload/blob/master/assets/ngx-hover-preload.png?raw=true" width="200px">
 </div>
 
 # ngx-hover-preload
