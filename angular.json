@@ -122,7 +122,50 @@
           }
         }
       }
+    },
+    "ngx-hover-preload": {
+      "projectType": "library",
+      "root": "projects/ngx-hover-preload",
+      "sourceRoot": "projects/ngx-hover-preload/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ngx-hover-preload/tsconfig.lib.json",
+            "project": "projects/ngx-hover-preload/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-hover-preload/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-hover-preload/src/test.ts",
+            "tsConfig": "projects/ngx-hover-preload/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-hover-preload/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-hover-preload/tsconfig.lib.json",
+              "projects/ngx-hover-preload/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
-  "defaultProject": "ngx-hover-preload-example"
+  "defaultProject": "ngx-hover-preload-example",
+  "cli": {
+    "analytics": "7d7d8e27-b4fe-426d-9d7d-f9d9dfe00359"
+  }
 }
