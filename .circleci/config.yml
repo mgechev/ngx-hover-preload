@@ -26,4 +26,4 @@ jobs:
 
       - run:
           name: 'Run tests'
-          command: ng test ngx-hover-preload --watch false
+          command: yarn test:ci
