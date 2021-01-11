@@ -1,27 +1,22 @@
 import { Injectable } from "@angular/core";
 import { Params, PRIMARY_OUTLET, Router, UrlSegment, UrlSegmentGroup, UrlTree } from "@angular/router";
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class RegistryService {
-  private _queue: UrlTree[] = [];
+  // Using a map so we don't add an element
+  // on each hover. This will generally reduce memory
+  // usage and will not require cleanup.
+  private _queue = new Set<UrlTree>([]);
 
   constructor(private router: Router) {}
 
-  register(route: UrlTree) {
-    this._queue.push(route);
-  }
-
-  remove(tree: UrlTree) {
-    this._queue.splice(this._queue.indexOf(tree), 1);
-  }
-
-  get queue(): Readonly<UrlTree[]> {
-    return this._queue;
+  add(route: UrlTree) {
+    this._queue.add(route);
   }
 
   shouldPrefetch(url: string) {
     const tree = this.router.parseUrl(url);
-    return this._queue.some(containsTree.bind(null, tree));
+    return [...this._queue].some(containsTree.bind(null, tree));
   }
 }
 

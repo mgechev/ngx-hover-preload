@@ -1,8 +1,7 @@
 import {
   Directive, Optional,
 } from '@angular/core';
-import { ActivatedRoute, RouterLink, RouterLinkWithHref, RouterPreloader } from '@angular/router';
-import { HoverPreloadStrategy } from './hover-preload.strategy';
+import { RouterLink, RouterLinkWithHref, RouterPreloader } from '@angular/router';
 import { RegistryService } from './registry.service';
 
 @Directive({
@@ -15,7 +14,6 @@ export class LinkDirective {
   private _rl: RouterLink | RouterLinkWithHref;
   constructor(
     private _loader: RouterPreloader,
-    private _route: ActivatedRoute,
     private _registry: RegistryService,
     @Optional() link: RouterLink,
     @Optional() linkWithHref: RouterLinkWithHref
@@ -24,11 +22,7 @@ export class LinkDirective {
   }
 
   prefetch() {
-    this._registry.register(this.urlTree);
+    this._registry.add(this._rl.urlTree);
     this._loader.preload().subscribe(() => void 0);
-  }
-
-  get urlTree() {
-    return this._rl.urlTree;
   }
 }
