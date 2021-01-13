@@ -5,7 +5,6 @@ import { RouterLink, RouterLinkWithHref, RouterPreloader } from '@angular/router
 import { RegistryService } from './registry.service';
 
 
-
 @Directive({
   selector: '[routerLink]',
   host: {

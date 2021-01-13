@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PreloadingStrategy, Router, Route, PRIMARY_OUTLET, ActivatedRoute } from '@angular/router';
+import { PreloadingStrategy, Router, Route, PRIMARY_OUTLET } from '@angular/router';
 import { EMPTY } from 'rxjs';
 import { RegistryService } from './registry.service';
 
