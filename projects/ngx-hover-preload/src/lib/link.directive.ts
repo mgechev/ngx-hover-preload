@@ -4,6 +4,8 @@ import {
 import { RouterLink, RouterLinkWithHref, RouterPreloader } from '@angular/router';
 import { RegistryService } from './registry.service';
 
+
+
 @Directive({
   selector: '[routerLink]',
   host: {
@@ -22,7 +24,39 @@ export class LinkDirective {
   }
 
   prefetch() {
-    this._registry.add(this._rl.urlTree);
-    this._loader.preload().subscribe(() => void 0);
+    requestIdleCallback(() => {
+      this._registry.add(this._rl.urlTree);
+      this._loader.preload().subscribe(() => void 0);
+    });
   }
 }
+
+type RequestIdleCallbackHandle = any;
+type RequestIdleCallbackOptions = {
+  timeout: number;
+};
+type RequestIdleCallbackDeadline = {
+  readonly didTimeout: boolean;
+  timeRemaining: (() => number);
+};
+
+type RequestIdleCallback = ((
+  callback: ((deadline: RequestIdleCallbackDeadline) => void),
+  opts?: RequestIdleCallbackOptions
+) => RequestIdleCallbackHandle);
+
+const requestIdleCallback: RequestIdleCallback =
+  typeof window !== 'undefined'
+    ? (window as any).requestIdleCallback ||
+      function(cb: Function) {
+        const start = Date.now();
+        return setTimeout(function() {
+          cb({
+            didTimeout: false,
+            timeRemaining: function() {
+              return Math.max(0, 50 - (Date.now() - start));
+            }
+          });
+        }, 1);
+      }
+    : () => {};

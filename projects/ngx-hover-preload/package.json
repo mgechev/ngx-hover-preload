@@ -1,6 +1,14 @@
 {
   "name": "ngx-hover-preload",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "author": {
+    "name": "Minko Gechev",
+    "email": "mgechev@gmail.com",
+    "url": "https://blog.mgechev.com"
+  },
+  "repository": {
+    "url": "https://github.com/mgechev/ngx-hover-preload"
+  },
   "peerDependencies": {
     "@angular/common": ">=9.0.0",
     "@angular/core": ">=9.0.0"
