@@ -6,10 +6,11 @@ import { RegistryService } from './registry.service';
 
 
 @Directive({
-  selector: '[routerLink]',
-  host: {
-    '(mouseenter)': 'prefetch()'
-  }
+    selector: '[routerLink]',
+    host: {
+        '(mouseenter)': 'prefetch()'
+    },
+    standalone: false
 })
 export class LinkDirective {
   private _rl: RouterLink | RouterLink;
