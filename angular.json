@@ -71,18 +71,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-hover-preload-example:build"
+            "buildTarget": "ngx-hover-preload-example:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-hover-preload-example:build:production"
+              "buildTarget": "ngx-hover-preload-example:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-hover-preload-example:build"
+            "buildTarget": "ngx-hover-preload-example:build"
           }
         },
         "test": {
