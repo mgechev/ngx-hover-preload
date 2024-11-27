@@ -170,7 +170,6 @@
       }
     }
   },
-  "defaultProject": "ngx-hover-preload-example",
   "cli": {
     "analytics": "7d7d8e27-b4fe-426d-9d7d-f9d9dfe00359"
   }
