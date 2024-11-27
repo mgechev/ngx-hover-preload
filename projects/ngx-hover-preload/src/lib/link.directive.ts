@@ -1,7 +1,7 @@
 import {
   Directive, Optional,
 } from '@angular/core';
-import { RouterLink, RouterLinkWithHref, RouterPreloader } from '@angular/router';
+import { RouterLink, RouterPreloader } from '@angular/router';
 import { RegistryService } from './registry.service';
 
 
@@ -12,12 +12,12 @@ import { RegistryService } from './registry.service';
   }
 })
 export class LinkDirective {
-  private _rl: RouterLink | RouterLinkWithHref;
+  private _rl: RouterLink | RouterLink;
   constructor(
     private _loader: RouterPreloader,
     private _registry: RegistryService,
     @Optional() link: RouterLink,
-    @Optional() linkWithHref: RouterLinkWithHref
+    @Optional() linkWithHref: RouterLink
   ) {
     this._rl = link || linkWithHref;
   }
