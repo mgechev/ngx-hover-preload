@@ -4,8 +4,8 @@ import { LinkDirective } from './link.directive';
 
 
 @NgModule({
-  declarations: [LinkDirective],
-  imports: [],
+  declarations: [],
+  imports: [LinkDirective],
   providers: [HoverPreloadStrategy],
   exports: [LinkDirective]
 })

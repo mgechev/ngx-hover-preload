@@ -9,8 +9,7 @@ import { RegistryService } from './registry.service';
     selector: '[routerLink]',
     host: {
         '(mouseenter)': 'prefetch()'
-    },
-    standalone: false
+    }
 })
 export class LinkDirective {
   private _rl: RouterLink | RouterLink;
