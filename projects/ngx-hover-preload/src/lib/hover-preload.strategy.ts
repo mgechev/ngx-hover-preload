@@ -34,14 +34,16 @@ const findPath = (config: Route[], route: Route): string => {
   while (config.length) {
     const el = config.shift();
     if (!el) {
-      break;
+      continue;
     }
     visited.add(el);
     if (el === route) break;
     let children = el.children || [];
-    const current = (el as any)._loadedConfig;
-    if (current && current.routes) {
-      children = children.concat(current.routes);
+    const current = (el as any)._loadedRoutes || [];
+    for (const route of current) {
+      if (route && route.children) {
+        children = children.concat(route.children);
+      }
     }
     children.forEach((r: Route) => {
       if (visited.has(r)) return;
@@ -50,7 +52,7 @@ const findPath = (config: Route[], route: Route): string => {
     });
   }
   let path = '';
-  let current = route;
+  let current: Route | undefined = route;
 
   while (current) {
     if (isPrimaryRoute(current)) {
@@ -58,10 +60,11 @@ const findPath = (config: Route[], route: Route): string => {
     } else {
       path = `/(${current.outlet}:${current.path}${path})`;
     }
-    current = parent.get(current)!;
+    current = parent.get(current);
   }
 
-  return path;
+  // For routes with empty paths (the resulted string will look like `///section/sub-section`)
+  return path.replace(/[\/]+/, '/');
 };
 
 function isPrimaryRoute(route: Route) {

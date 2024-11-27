@@ -24,8 +24,11 @@ export class LinkDirective {
   }
 
   prefetch() {
+    if (this._rl.urlTree === null) {
+      return;
+    }
+    this._registry.add(this._rl.urlTree);
     requestIdleCallback(() => {
-      this._registry.add(this._rl.urlTree);
       this._loader.preload().subscribe(() => void 0);
     });
   }
