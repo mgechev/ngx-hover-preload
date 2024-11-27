@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "test:ci": "ng test ngx-hover-preload --watch false"
+    "test:ci": "ng test ngx-hover-preload --watch false",
+    "release": "cp README.md projects/ngx-hover-preload && ng build ngx-hover-preload --configuration production"
   },
   "private": true,
   "dependencies": {

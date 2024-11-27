@@ -31,7 +31,7 @@ Configure your app with the correct providers:
 
 ```ts
 bootstrapApplication(AppComponent, {
-  providers: [HoverPreloadStrategy, provideRouter(routes, withPreloading(HoverPreloadStrategy))]
+  providers: [hoverPrefetchProviders, provideRouter(routes, withPreloading(HoverPreloadStrategy))]
 });
 ```
 

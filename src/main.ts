@@ -4,7 +4,7 @@ import { environment } from './environments/environment';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 import { provideRouter, withPreloading } from '@angular/router';
-import { HoverPreloadStrategy } from 'ngx-hover-preload';
+import { HoverPreloadStrategy, hoverPrefetchProviders } from 'ngx-hover-preload';
 import { routes } from './app/routes';
 
 if (environment.production) {
@@ -12,5 +12,5 @@ if (environment.production) {
 }
 
 bootstrapApplication(AppComponent, {
-  providers: [HoverPreloadStrategy, provideRouter(routes, withPreloading(HoverPreloadStrategy))]
+  providers: [hoverPrefetchProviders, provideRouter(routes, withPreloading(HoverPreloadStrategy))]
 });
