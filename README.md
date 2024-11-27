@@ -25,6 +25,31 @@ Install the module:
 yarn add ngx-hover-preload
 ```
 
+### Standalone
+
+Configure your app with the correct providers:
+
+```ts
+bootstrapApplication(AppComponent, {
+  providers: [HoverPreloadStrategy, provideRouter(routes, withPreloading(HoverPreloadStrategy))]
+});
+```
+
+Make sure you import the `HoverPrefetchLinkDirective` anywhere you want to enable prefetching.
+
+In case you want to disable prefetching for a particular route specify:
+
+```ts
+{
+  path: 'foo',
+  data: {
+    preload: false
+  }
+}
+```
+
+### NgModules
+
 Import the `HoverPreloadModule`  in your `AppModule` and your lazy-loaded modules to ensure the required directives are available:
 
 ```ts
